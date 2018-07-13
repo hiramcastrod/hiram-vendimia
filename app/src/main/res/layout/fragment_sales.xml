@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SalesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_sales"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/tabSales"
-        android:gravity="center"/>
+        tools:listitem="@layout/sales_view_holder"
+        >
 
-</FrameLayout>
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
