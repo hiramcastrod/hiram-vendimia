@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        final android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         final android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         switch (item.getItemId()){
