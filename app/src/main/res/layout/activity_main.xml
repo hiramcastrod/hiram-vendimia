@@ -3,29 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_drawer_layout"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    tools:context=".MainActivity">
+    >
 
     <include
         layout="@layout/app_bar_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
         android:fitsSystemWindows="true"
+        android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_container"
         app:menu="@menu/menu_drawer"
         />
-
-
-
 
 </android.support.v4.widget.DrawerLayout>
