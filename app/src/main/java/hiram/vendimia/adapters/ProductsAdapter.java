@@ -1,6 +1,8 @@
 package hiram.vendimia.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 import hiram.vendimia.R;
+import hiram.vendimia.activities.PopUpActivity;
 import hiram.vendimia.models.Product;
 
 public class ProductsAdapter extends BaseAdapter {
@@ -52,7 +55,7 @@ public class ProductsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         ProductsViewHolder holder;
         if(view==null){
             holder = new ProductsViewHolder();
@@ -76,6 +79,19 @@ public class ProductsAdapter extends BaseAdapter {
         holder.image.setImageResource(productList.get(position).getIcon());
 
         //Item Click listener
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( context, PopUpActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("PRODUCT", productList.get(position).getModel());
+                bundle.putInt("STOCK", productList.get(position).getStock());
+                bundle.putInt("TOTAL", productList.get(position).getPrice());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
+
         return view;
     }
 
