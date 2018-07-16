@@ -4,4 +4,5 @@
     <dimen name="general_padding">16dp</dimen>
     <dimen name="toolbar_p_t">64dp</dimen>
     <dimen name="toolbar_size">60dp</dimen>
+    <dimen name="list_padding">10dp</dimen>
 </resources>
