@@ -1,6 +1,7 @@
 package hiram.vendimia.activities;
 
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -10,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,9 +28,12 @@ public class PopUpActivity extends AppCompatActivity {
     private Button btAccept, btCancel;
     private Spinner spinner;
     private TextView tvModel, tvPrice, tvTotal;
+    private ImageView ivIcon;
     private int quantity;
     private int selectedItem;
     ArrayList<Cart> cartList;
+    SharedPreferences sharedPreferences;
+
 
 
     @Override
@@ -40,15 +45,16 @@ public class PopUpActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.tv_importe_popup);
         spinner = findViewById(R.id.quantity_spinner);
         btAccept = findViewById(R.id.button_accept_popup);
+        ivIcon = findViewById(R.id.iv_icon_popup);
+        sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
         loadCartList();
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
-        getWindow().setLayout((int)(width*.7), (int)(height*.6));
+        getWindow().setLayout((int)(width*.7), (int)(height*.7));
 
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
@@ -90,8 +96,7 @@ public class PopUpActivity extends AppCompatActivity {
     }
 
     public void saveNewSale(){
-        cartList.add(new Cart(tvModel.getText().toString(), selectedItem, Integer.parseInt(tvTotal.getText().toString())));
-        SharedPreferences sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
+        cartList.add(new Cart(tvModel.getText().toString(), selectedItem, Integer.parseInt(tvTotal.getText().toString()),ivIcon.getId()));
         SharedPreferences.Editor editor =  sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(cartList);
@@ -101,7 +106,7 @@ public class PopUpActivity extends AppCompatActivity {
         System.out.println(cartList.get(i).getModelProduct());
     }
 
-    public void loadCartList(){
+    public ArrayList<Cart> loadCartList(){
         SharedPreferences sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("cart list", null);
@@ -111,5 +116,9 @@ public class PopUpActivity extends AppCompatActivity {
         if(cartList == null){
             cartList = new ArrayList<>();
         }
+
+        return cartList;
     }
+
+
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ShoppingCartActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/cart_viewholder"
+        />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="horizontal"
+    android:weightSum="1"
+    android:background="@color/colorAccent"
+    >
+
+
+    <TextView
+        android:layout_marginStart="@dimen/fab_icon_size"
+        android:layout_weight=".6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total: "
+        />
+
+    <TextView
+        android:id="@+id/textview_alltotal_cart"
+        android:layout_weight=".2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="total"
+        />
+
+    <Button
+        android:layout_weight=".2"
+        android:text="Comprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/alert"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+        />
+
+</LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

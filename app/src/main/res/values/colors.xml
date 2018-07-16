@@ -9,4 +9,5 @@
     <color name="secondaryText">#757575</color>
     <color name="dividerColor">#BDBDBD</color>
     <color name="recyclerBackground">#F9FAFB</color>
+    <color name="alert">#D9534F</color>
 </resources>

@@ -84,6 +84,7 @@ public class ProductsAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent( context, PopUpActivity.class);
                 Bundle bundle = new Bundle();
+                bundle.putInt("ICON", productList.get(position).getIcon());
                 bundle.putString("PRODUCT", productList.get(position).getModel());
                 bundle.putInt("STOCK", productList.get(position).getStock());
                 bundle.putInt("TOTAL", productList.get(position).getPrice());

@@ -2,13 +2,22 @@ package hiram.vendimia.models;
 
 public class Cart {
     String modelProduct;
-    int quantity;
+    int quantity, icon;
     float total;
 
-    public Cart(String modelProduct, int quantity, float total){
+    public Cart(String modelProduct, int quantity, float total, int icon){
         this.modelProduct = modelProduct;
         this.quantity = quantity;
         this.total = total;
+        this.icon = icon;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
     }
 
     public String getModelProduct() {

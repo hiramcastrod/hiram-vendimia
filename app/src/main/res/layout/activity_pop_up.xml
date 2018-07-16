@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.PopUpActivity"
-    android:background="@color/colorPrimaryLight"
+    android:background="@color/colorAccent"
     >
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_weight=".8"
+        android:layout_weight=".6"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,9 +39,16 @@
             android:textAlignment="center"
             android:textSize="20dp"
             />
+        <ImageView
+            android:id="@+id/iv_icon_popup"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
     <LinearLayout
-        android:layout_weight=".2"
+        android:layout_weight=".4"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -96,12 +103,15 @@
         <Button
             android:id="@+id/button_accept_popup"
             android:text="Aceptar"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:text="Cancelar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/alert"
+            />
     </LinearLayout>
     </LinearLayout>
     </LinearLayout>

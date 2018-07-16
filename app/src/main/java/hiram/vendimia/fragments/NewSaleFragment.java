@@ -1,5 +1,6 @@
 package hiram.vendimia.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.support.v7.widget.SearchView;
 import java.util.ArrayList;
 
 import hiram.vendimia.R;
+import hiram.vendimia.activities.ShoppingCartActivity;
 import hiram.vendimia.adapters.ProductsAdapter;
 import hiram.vendimia.models.Product;
 
@@ -94,6 +96,8 @@ public class NewSaleFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id==R.id.action_cart){
+            Intent intent = new Intent(getContext(), ShoppingCartActivity.class);
+            startActivity(intent);
             return true;
         }
         return true;

@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.ContainerActivity" />
-        <activity android:name=".activities.PopUpActivity"
-            android:theme="@style/AppTheme.CustomTheme"
-            >
-        </activity>
+        <activity
+            android:name=".activities.PopUpActivity"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".activities.ShoppingCartActivity"></activity>
     </application>
 
 </manifest>
