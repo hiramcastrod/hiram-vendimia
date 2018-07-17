@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +46,7 @@ public class PopUpActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.tv_importe_popup);
         spinner = findViewById(R.id.quantity_spinner);
         btAccept = findViewById(R.id.button_accept_popup);
+        btCancel = findViewById(R.id.button_cancel_popup);
         ivIcon = findViewById(R.id.iv_icon_popup);
         sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
         loadCartList();
@@ -90,7 +92,16 @@ public class PopUpActivity extends AppCompatActivity {
         btAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Mueble agregado al carrito de compras", Toast.LENGTH_LONG).show();
                 saveNewSale();
+                finish();
+            }
+        });
+
+        btCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

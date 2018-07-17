@@ -14,6 +14,7 @@ import com.android.volley.toolbox.Volley;
 public class indexApi {
     static String api="http://www.mocky.io/v2/";
     static String api_sales ="5b4a542a2f000079001e0e4b";
+    static String api_clients = "http://www.mocky.io/v2/5b4d8c3631000055005ebc16";
 
     public static void GetRequest(String path, final Map<String, String> params, final Map<String, String> headers,
                                   Response.Listener<String> onSuccess, Response.ErrorListener onError,
