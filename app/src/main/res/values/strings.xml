@@ -9,4 +9,11 @@
     <string name="configTab">Configuración</string>
     <string name="open_nav_drawer">Open Drawer</string>
     <string name="close_nav_drawer">Close Drawer</string>
+    <string name="folio">Folio:</string>
+    <string name="client_number">Clave Cliente:</string>
+    <string name="date">Fecha:</string>
+    <string name="name">Nombre</string>
+    <string name="total">Total</string>
+    <string name="status">Status</string>
+    <string name="Modelo">Modelo</string>
 </resources>
