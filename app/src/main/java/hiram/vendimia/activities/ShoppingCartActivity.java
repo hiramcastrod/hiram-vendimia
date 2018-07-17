@@ -1,5 +1,6 @@
 package hiram.vendimia.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -94,11 +95,10 @@ public class ShoppingCartActivity extends AppCompatActivity {
         proceedtoPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), SelectClientActivity.class);
+                startActivity(intent);
             }
-        });
-
-
+        });     
     }
 
     public ArrayList<Cart> loadCartList(){

@@ -23,8 +23,11 @@
         <activity android:name=".activities.ContainerActivity" />
         <activity
             android:name=".activities.PopUpActivity"
-            android:theme="@style/AppTheme.CustomTheme"></activity>
-        <activity android:name=".activities.ShoppingCartActivity"></activity>
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".activities.ShoppingCartActivity" />
+        <activity android:name=".activities.SelectClientActivity"
+            android:theme="@style/AppTheme.CustomTheme"
+            ></activity>
     </application>
 
 </manifest>
