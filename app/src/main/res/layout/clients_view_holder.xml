@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/list_padding"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/client_icon"
+            android:src="@drawable/ic_action_name"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:id="@+id/textView_name_client"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/textView_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido paterno"
+                android:textSize="15dp"
+                android:paddingRight="@dimen/general_padding"
+                />
+            <TextView
+                android:id="@+id/textView_surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apeliido materno"
+                android:textSize="15dp"
+                />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/textView_rfc_client"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RFC"
+                android:textSize="12dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
