@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import hiram.vendimia.R;
 import hiram.vendimia.adapters.ShoppingCartAdapter;
 import hiram.vendimia.models.Cart;
+import hiram.vendimia.services.LocalDictionary;
+import hiram.vendimia.services.LocalStorage;
 
 public class ShoppingCartActivity extends AppCompatActivity {
     TextView tvModel, tvPrice, tvQuantity, tvAmount, total, tvThreeM, tvSixM, tvNineM, tvTwelveM;
@@ -33,6 +35,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     double amountDouble;
     RadioGroup radioGroup;
     Button proceedtoPay;
+    private LocalStorage storage = new LocalStorage();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,18 +77,22 @@ public class ShoppingCartActivity extends AppCompatActivity {
                     case R.id.three_radio:
                         amountDouble= amount * (1+(2.8*3)/100);
                         total.setText(String.valueOf(amountDouble));
+                        storage.setLocalData(getApplicationContext(), LocalDictionary.TOTAL, String.valueOf(amountDouble));
                         break;
                     case R.id.six_radio:
                         amountDouble= amount * (1+(2.8*6)/100);
                         total.setText(String.valueOf(amountDouble));
+                        storage.setLocalData(getApplicationContext(), LocalDictionary.TOTAL, String.valueOf(amountDouble));
                         break;
                     case R.id.nine_radio:
                         amountDouble= amount * (1+(2.8*9)/100);
                         total.setText(String.valueOf(amountDouble));
+                        storage.setLocalData(getApplicationContext(), LocalDictionary.TOTAL, String.valueOf(amountDouble));
                         break;
                     case R.id.twelve_radio:
                         amountDouble= amount * (1+(2.8*12)/100);
                         total.setText(String.valueOf(amountDouble));
+                        storage.setLocalData(getApplicationContext(), LocalDictionary.TOTAL, String.valueOf(amountDouble));
                         break;
                 }
             }
