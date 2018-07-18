@@ -101,17 +101,19 @@ public class SelectClientActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(saleList);
-        editor.putString(LocalDictionary.SALES, json);
+        editor.putString("ventas", json);
         editor.apply();
         for(int i = 0; i<saleList.size(); i++)
             System.out.println(saleList);
+
+
 
     }
 
     public ArrayList<Sale> getSaleList() {
         SharedPreferences sharedPreferences = getSharedPreferences(LocalDictionary.SALES, MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString(LocalDictionary.DICTIONARY_FILE, null);
+        String json = sharedPreferences.getString("ventas", null);
         Type type = new TypeToken<ArrayList<Sale>>() {}.getType();
         saleList = gson.fromJson(json, type);
 

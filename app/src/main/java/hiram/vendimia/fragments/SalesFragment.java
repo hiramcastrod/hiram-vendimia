@@ -126,12 +126,14 @@ public class SalesFragment extends Fragment {
     public ArrayList<Sale> getSaleList() {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(LocalDictionary.SALES, Context.MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString(LocalDictionary.SALES, null);
+        String json = sharedPreferences.getString("ventas", null);
         Type type = new TypeToken<ArrayList<Sale>>() {}.getType();
         saleList = gson.fromJson(json, type);
 
         if(saleList == null){
             saleList = new ArrayList<>();
+            isgone.setVisibility(View.VISIBLE);
+            isgone.setText("No hay ventas actualmente");
         }
         return saleList;
     }

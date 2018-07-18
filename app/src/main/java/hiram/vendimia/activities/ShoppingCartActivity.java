@@ -109,7 +109,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     }
 
     public ArrayList<Cart> loadCartList(){
-        SharedPreferences sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(LocalDictionary.SALES, MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("cart list", null);
         Type type = new TypeToken<ArrayList<Cart>>() {}.getType();
