@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import hiram.vendimia.R;
 import hiram.vendimia.models.Cart;
+import hiram.vendimia.services.LocalDictionary;
 
 public class PopUpActivity extends AppCompatActivity {
     private Button btAccept, btCancel;
@@ -48,7 +49,7 @@ public class PopUpActivity extends AppCompatActivity {
         btAccept = findViewById(R.id.button_accept_popup);
         btCancel = findViewById(R.id.button_cancel_popup);
         ivIcon = findViewById(R.id.iv_icon_popup);
-        sharedPreferences = getSharedPreferences("sales", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(LocalDictionary.SALES, MODE_PRIVATE);
         loadCartList();
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);

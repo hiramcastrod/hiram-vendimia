@@ -19,7 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,7 +28,6 @@ import java.util.Map;
 import java.util.Random;
 
 import hiram.vendimia.R;
-import hiram.vendimia.adapters.ClientsAdapter;
 import hiram.vendimia.models.Client;
 import hiram.vendimia.models.Sale;
 import hiram.vendimia.services.LocalDictionary;
@@ -41,7 +39,7 @@ public class SelectClientActivity extends AppCompatActivity {
     private Button accept;
     ArrayList<Sale> saleList;
     private LocalStorage storage = new LocalStorage();
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,7 @@ public class SelectClientActivity extends AppCompatActivity {
         accept = findViewById(R.id.button_accept_select_cient);
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
+        sharedPreferences = getSharedPreferences(LocalDictionary.SALES, MODE_PRIVATE);
         int width = displayMetrics.widthPixels;
         int height = displayMetrics.heightPixels;
 
@@ -100,7 +98,7 @@ public class SelectClientActivity extends AppCompatActivity {
         saleList.add(new Sale(String.valueOf(r), String.valueOf(r),
                 currentDate.toString(), spinner.getSelectedItem().toString(),
                 storage.getLocalData(getApplicationContext(), LocalDictionary.TOTAL), "Activo"));
-        SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences(LocalDictionary.DICTIONARY_FILE, MODE_PRIVATE).edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(saleList);
         editor.putString(LocalDictionary.SALES, json);

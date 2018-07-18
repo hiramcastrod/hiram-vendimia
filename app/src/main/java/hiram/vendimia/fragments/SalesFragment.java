@@ -2,6 +2,7 @@ package hiram.vendimia.fragments;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,16 +13,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import hiram.vendimia.services.LocalDictionary;
 import hiram.vendimia.services.indexApi;
 import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +41,7 @@ public class SalesFragment extends Fragment {
     TextView isgone;
     RecyclerView salesRV;
     private FloatingActionButton fabNewSale;
+    ArrayList<Sale> saleList;
     public SalesFragment() {
         // Required empty public constructor
     }
@@ -51,7 +58,12 @@ public class SalesFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         salesRV.setLayoutManager(linearLayoutManager);
+        getSaleList();
+            System.out.println(saleList);
+            SalesAdapter salesAdapter = new SalesAdapter(saleList, R.layout.sales_view_holder, getActivity());
+            salesRV.setAdapter(salesAdapter);
 
+/* METODO GET CON API
         Map<String, String> header = new HashMap<>();
         indexApi.GetRequest("5b4a54ee2f000079001e0e4c", null, header, new Response.Listener<String>() {
             @Override
@@ -78,7 +90,7 @@ public class SalesFragment extends Fragment {
                 System.out.print("ERROR VOLLEY: " + error);
             }
         }, getContext());
-
+*/
 
         fabNewSale.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +123,19 @@ public class SalesFragment extends Fragment {
         return sales;
     }
 
+    public ArrayList<Sale> getSaleList() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(LocalDictionary.SALES, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString(LocalDictionary.SALES, null);
+        Type type = new TypeToken<ArrayList<Sale>>() {}.getType();
+        saleList = gson.fromJson(json, type);
+
+        if(saleList == null){
+            saleList = new ArrayList<>();
+        }
+        return saleList;
+    }
+
     public ArrayList<Sale> SaleList(JSONArray jsonArray){
         ArrayList<Sale> sales = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++){
@@ -129,6 +154,8 @@ public class SalesFragment extends Fragment {
         }
         return sales;
     }
+
+
 
     }
 
